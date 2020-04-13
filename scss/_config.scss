@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 $primary-color: #444;
-$primary-font-color: #fff;
+$primary-font-color-light: #fff;
+$primary-font-color-dark: #000;
 $secondary-color: #eece1a;
 $show-home-image: true;
 $home-image: url(../img/background.jpg);
@@ -26,6 +27,16 @@ $background-opacity: 0.9;
                 background: rgba($primary-color, $background-opacity);
             }
         }
+    }
+}
+
+// set text color
+@function set-text-color($color) {
+    @if (lightness($color)>40) {
+        @return $primary-font-color-dark;
+    }
+    @else {
+        @return $primary-font-color-light;
     }
 }
 
